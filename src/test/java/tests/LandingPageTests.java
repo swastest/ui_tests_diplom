@@ -5,7 +5,6 @@ import com.github.javafaker.Faker;
 import helpers.DriverUtils;
 import helpers.GetFromDataBase;
 import io.qameta.allure.Description;
-import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -17,13 +16,13 @@ import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class LandingPageTests extends TestBase {
+
     @Test
     @DisplayName("Проверка стоимости на главной странице")
-    void generatedTest() {
+    void priceCityTests() {
         GetFromDataBase bd = new GetFromDataBase();
-        String city = System.getProperty("city","Казань"),
-        price = bd.findPrice(city),
-        priceQ = price.split("\\.")[0];
+        String city = System.getProperty("city", "МОСКВА"),
+                price = bd.findPrice(city).split("\\.")[0];
 
         step("Открыть главную страницу", () -> {
             Selenide.open("");
@@ -38,7 +37,7 @@ public class LandingPageTests extends TestBase {
 
         step("Проверить стоимость уборки для выбранного города", () -> {
             $("div.city-select.selected-city", 1).shouldHave(text(city));
-            $("div.form-cost__value > span.form-cost__sum").shouldHave(text(priceQ));
+            $("div.form-cost__value > span.form-cost__sum").shouldHave(text(price));
         });
     }
 
@@ -64,8 +63,8 @@ public class LandingPageTests extends TestBase {
     @DisplayName("Негативный тест авторизации")
     void negativeAuthTest() {
         Faker faker = new Faker();
-        String login = "7903"+faker.numerify("#######");
-        String password = "7903"+faker.numerify("#######");
+        String login = "7903" + faker.numerify("#######");
+        String password = "7903" + faker.numerify("#######");
         step("Открыть главную страницу", () -> {
             Selenide.open("");
         });

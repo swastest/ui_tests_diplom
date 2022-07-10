@@ -16,6 +16,7 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static java.lang.String.format;
 
 public class TestBase {
+
     @BeforeAll
     static void setUp() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
@@ -40,7 +41,7 @@ public class TestBase {
 
         String host = System.getProperty("host", "remote");
 
-        if(host.equals("remote")){
+        if (host.equals("remote")) {
             Configuration.remote = fullSelenoidUrlWithLogPass;
 
             DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -48,6 +49,7 @@ public class TestBase {
             capabilities.setCapability("enableVideo", true);
             Configuration.browserCapabilities = capabilities;
         }
+
     }
 
     @AfterEach
@@ -59,4 +61,5 @@ public class TestBase {
         Attach.addVideo();
         closeWebDriver();
     }
+
 }
