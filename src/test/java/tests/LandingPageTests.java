@@ -95,8 +95,8 @@ public class LandingPageTests extends TestBase {
         step("Открыть главную страницу", () ->
                 open(""));
 
-        step("Title соответствует требованию текста 'Мобильный клининг уборки квартир, низкие цены | LIVEINCLEAN - уборка - это доступно'", () -> {
-            String expectedTitle = "Мобильный клининг уборки квартир, низкие цены | LIVEINCLEAN - уборка - это доступно";
+        step("Title соответствует требованию текста 'Live In Clean'", () -> {
+            String expectedTitle = "Live In Clean";
             String actualTitle = title();
 
             assertThat(actualTitle).isEqualTo(expectedTitle);

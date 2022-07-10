@@ -34,10 +34,10 @@ public class TestBase {
                 fullSelenoidUrlWithLogPass = format("https://%s:%s@selenoid.autotests.cloud/wd/hub",
                         selenoidLogin, selenoidPassword);
 
-        Configuration.baseUrl = configEnv.mainUrl();
-        Configuration.browser = browserName;
-        Configuration.browserVersion = browserVersion;
-        Configuration.browserSize = browserSize;
+            Configuration.baseUrl = configEnv.mainUrl();
+            Configuration.browser = browserName;
+            Configuration.browserVersion = browserVersion;
+            Configuration.browserSize = browserSize;
 
         String host = System.getProperty("host", "remote");
 
@@ -55,11 +55,11 @@ public class TestBase {
     @AfterEach
     @DisplayName("Добавить аттачи")
     void addAttachments() {
-        Attach.screenshotAs("Итоговый скрин");
-        Attach.pageSource();
-        Attach.browserConsoleLogs();
-        Attach.addVideo();
-        closeWebDriver();
+            Attach.screenshotAs("Итоговый скрин");
+            Attach.pageSource();
+            Attach.browserConsoleLogs();
+            Attach.addVideo();
+            closeWebDriver();
     }
 
 }
