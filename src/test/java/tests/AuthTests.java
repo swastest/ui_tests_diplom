@@ -2,6 +2,9 @@ package tests;
 
 import com.github.javafaker.Faker;
 import configs.TestDataInterface;
+import io.qameta.allure.AllureId;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -23,6 +26,8 @@ public class AuthTests extends TestBase {
     PrivateOfficePage privateOfficePage = new PrivateOfficePage();
 
     @Test
+    @AllureId("11102")
+    @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Авторизация пользователя со статусом Активен")
     void authActiveUser() {
         mainPage.openPage("")
@@ -37,6 +42,8 @@ public class AuthTests extends TestBase {
     }
 
     @Test
+    @AllureId("11108")
+    @Severity(SeverityLevel.NORMAL)
     @DisplayName("Негативный тест авторизации")
     void negativeAuthTest() {
         mainPage.openPage("")
@@ -48,6 +55,7 @@ public class AuthTests extends TestBase {
     }
 
     @Test
+    @AllureId("11103")
     @DisplayName("Авторизация заблокированного пользователя")
     void authBlockUser() {
         mainPage.openPage("")

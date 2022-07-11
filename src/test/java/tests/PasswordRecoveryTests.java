@@ -1,6 +1,7 @@
 package tests;
 
 import configs.TestDataInterface;
+import io.qameta.allure.AllureId;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -17,7 +18,8 @@ public class PasswordRecoveryTests extends TestBase {
     RecoveryPage recoveryPage = new RecoveryPage();
 
     @Test
-    @DisplayName("Восстановление пароля по коду из смс зарегистрированного пользователя")
+    @AllureId("11104")
+    @DisplayName("Всплывающее уведомление об отправке смс, с кодом подтверждая, отображается при запросе восстановления пароля")
     void recoveryPasswordActiveUser() {
         mainPage.openPage("")
                 .clickPrivateOfficeButton();
@@ -31,6 +33,7 @@ public class PasswordRecoveryTests extends TestBase {
     }
 
     @Test
+    @AllureId("11106")
     @DisplayName("Негативная проверка восстановления пароля незарегистрированным пользователем")
     void recoveryPasswordNonExistentUser() {
         mainPage.openPage("")
