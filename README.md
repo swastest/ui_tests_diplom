@@ -1,6 +1,8 @@
 # Проект по автоматизации тестирования клининговой платформы "Чистота ру"
 ## <a target="_blank" href="https://www.navedudud.ru/">Платформа "Наведу чистоту точка ру"</a>
-
+<p align="center">
+<img title="logo" src="images/screenshots/Xpic001.jpg">
+</p>
 ## :floppy_disk: Содержание:
 
 - <a href="#computer-технологии-и-инструменты">Технологии и инструменты</a>
