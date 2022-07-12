@@ -30,7 +30,7 @@ public class LandingPageTests extends TestBase {
     @DisplayName("Проверка стоимости на главной странице")
     void priceCityTests() {
         step("Открыть главную страницу", () ->
-                open(""));
+            open(""));
 
         step("Выбрать город", () -> {
             $("div.city-select.selected-city", 1).click();
@@ -49,10 +49,10 @@ public class LandingPageTests extends TestBase {
     @DisplayName("Проверка страницы 'Сотрудничество'")
     void forPerformersTest() {
         step("Открыть главную страницу", () ->
-                open(""));
+             open(""));
 
         step("Нажать кнопку 'Исполнителям'", () ->
-                $(By.linkText("Исполнителям")).click());
+            $(By.linkText("Исполнителям")).click());
 
         step("Проверка контента страницы 'Сотрудничество'", () -> {
             $("div.header-desc.heading-performers").shouldHave(text("Сотрудничество с нами!"));
@@ -65,10 +65,10 @@ public class LandingPageTests extends TestBase {
     @DisplayName("Негативный тест авторизации")
     void negativeAuthTest() {
         step("Открыть главную страницу", () ->
-                open(""));
+             open(""));
 
         step("Перейти на страницу авторизации", () ->
-                $("a.menu-item_login", 1).click());
+            $("a.menu-item_login", 1).click());
 
         step("Ввести несуществующую пару логин/пароль", () -> {
             $("input[name=phone]").setValue(unregisteredLogin);
@@ -76,10 +76,10 @@ public class LandingPageTests extends TestBase {
         });
 
         step("Нажать кнопку 'Войти'", () ->
-                $(".button.button-main").$("span").click());
+            $(".button.button-main").$("span").click());
 
         step("Проверка подсказки о неверной паре логин/пароль", () ->
-                $("div.form__notice.form__notice_error:nth-child(4)").shouldHave(
+            $("div.form__notice.form__notice_error:nth-child(4)").shouldHave(
                         text("Введен неверный номер телефона или пароль")));
     }
 
@@ -88,7 +88,7 @@ public class LandingPageTests extends TestBase {
     @DisplayName("Проверка соответствия в Title")
     void titleTest() {
         step("Открыть главную страницу", () ->
-                open(""));
+            open(""));
 
         step("Title соответствует требованию текста 'Live In Clean'", () -> {
             String expectedTitle = "Live In Clean";
@@ -102,7 +102,7 @@ public class LandingPageTests extends TestBase {
     @DisplayName("Проверка ошибок в консоли")
     void consoleShouldNotHaveErrorsTest() {
         step("Открыть главную страницу", () ->
-                open(""));
+              open(""));
 
         step("Проверка консоли на наличие ошибки 'SEVERE'", () -> {
             String consoleLogs = DriverUtils.getConsoleLogs();
