@@ -1,6 +1,5 @@
 package tests;
 
-import com.codeborne.selenide.Selenide;
 import com.github.javafaker.Faker;
 import helpers.DriverUtils;
 import helpers.DataBaseQuery;
@@ -66,10 +65,10 @@ public class LandingPageTests extends TestBase {
     @DisplayName("Негативный тест авторизации")
     void negativeAuthTest() {
         step("Открыть главную страницу", () ->
-            Selenide.open(""));
+                open(""));
 
         step("Перейти на страницу авторизации", () ->
-            $("a.menu-item_login", 1).click());
+                $("a.menu-item_login", 1).click());
 
         step("Ввести несуществующую пару логин/пароль", () -> {
             $("input[name=phone]").setValue(unregisteredLogin);
@@ -77,11 +76,11 @@ public class LandingPageTests extends TestBase {
         });
 
         step("Нажать кнопку 'Войти'", () ->
-            $(".button.button-main").$("span").click());
+                $(".button.button-main").$("span").click());
 
         step("Проверка подсказки о неверной паре логин/пароль", () ->
-            $("div.form__notice.form__notice_error:nth-child(4)").shouldHave(
-                    text("Введен неверный номер телефона или пароль")));
+                $("div.form__notice.form__notice_error:nth-child(4)").shouldHave(
+                        text("Введен неверный номер телефона или пароль")));
     }
 
     @Test
