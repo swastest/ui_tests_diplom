@@ -1,11 +1,10 @@
 package tests;
 
 import com.github.javafaker.Faker;
-import config.TestDataInterface;
+import config.ConfigurationCenter;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
-import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -15,7 +14,6 @@ import pages.PrivateOfficePage;
 
 @Tag("auth")
 public class AuthTests extends TestBase {
-    TestDataInterface config = ConfigFactory.create(TestDataInterface.class);
     Faker faker = new Faker();
     AuthPage authPage = new AuthPage();
     MainPage mainPage = new MainPage();
@@ -33,13 +31,13 @@ public class AuthTests extends TestBase {
     void authActiveUser() {
         mainPage.openPage()
                 .clickPrivateOfficeButton();
-        authPage.setLogin(config.userActiveLogin())
-                .setPassword(config.userActivePassword())
+        authPage.setLogin(ConfigurationCenter.configTestData.userActiveLogin())
+                .setPassword(ConfigurationCenter.configTestData.userActivePassword())
                 .submitClick();
         privateOfficePage
                 .clickProfileButton()
-                .checkProfileTable(config.userActiveFirstName(), config.userActiveLastName(),
-                        config.expectPhoneActiveUser());
+                .checkProfileTable(ConfigurationCenter.configTestData.userActiveFirstName(), ConfigurationCenter.configTestData.userActiveLastName(),
+                        ConfigurationCenter.configTestData.expectPhoneActiveUser());
     }
 
     @Test
@@ -61,11 +59,11 @@ public class AuthTests extends TestBase {
     void authBlockUser() {
         mainPage.openPage()
                 .clickPrivateOfficeButton();
-        authPage.setLogin(config.userBlockLogin())
-                .setPassword(config.userBlockPassword())
+        authPage.setLogin(ConfigurationCenter.configTestData.userBlockLogin())
+                .setPassword(ConfigurationCenter.configTestData.userBlockPassword())
                 .submitClick();
         privateOfficePage.checkAccountStatus(accountStatusMessage)
-                .checkProfileTable(config.userBlockFirstName(), config.userBlockLastName(),
-                        config.userBlockLogin());
+                .checkProfileTable(ConfigurationCenter.configTestData.userBlockFirstName(), ConfigurationCenter.configTestData.userBlockLastName(),
+                        ConfigurationCenter.configTestData.userBlockLogin());
     }
 }
