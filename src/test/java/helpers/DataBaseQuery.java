@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class GetFromDataBase {
+public class DataBaseQuery {
     private DataSource ds = DataSourceProvider.INSTANCE.getDataSource();
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(ds);
 
@@ -20,5 +20,4 @@ public class GetFromDataBase {
                 (rs,i)->rs.getString("price_for_hour"));
         return priceForHour.get(0);
     }
-
 }

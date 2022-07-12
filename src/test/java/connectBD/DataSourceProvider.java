@@ -1,6 +1,7 @@
 package connectBD;
 
-import configs.DataBaseInterface;
+import config.ConfigurationCenter;
+import config.DataBaseInterface;
 import org.aeonbits.owner.ConfigFactory;
 import org.postgresql.ds.PGSimpleDataSource;
 
@@ -12,16 +13,14 @@ public enum DataSourceProvider {
     private PGSimpleDataSource dataSource;
 
     public DataSource getDataSource() {
-        DataBaseInterface config = ConfigFactory.create(DataBaseInterface.class);
         if (dataSource == null){
             dataSource = new PGSimpleDataSource();
-            dataSource.setServerName(config.serverName());
-            dataSource.setPortNumber(config.portNumber());
-            dataSource.setUser(config.user());
-            dataSource.setDatabaseName(config.databaseName());
-            dataSource.setPassword(config.password());
+            dataSource.setServerName(ConfigurationCenter.configBD.serverName());
+            dataSource.setPortNumber(ConfigurationCenter.configBD.portNumber());
+            dataSource.setUser(ConfigurationCenter.configBD.user());
+            dataSource.setDatabaseName(ConfigurationCenter.configBD.databaseName());
+            dataSource.setPassword(ConfigurationCenter.configBD.password());
         }
-
         return dataSource;
     }
 }

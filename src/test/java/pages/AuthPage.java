@@ -5,9 +5,9 @@ import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 
 public class AuthPage {
-
     //locators
     SelenideElement loginInput = $("input[name=phone]"),
             passwordInput = $("input[name=password]"),
@@ -16,6 +16,11 @@ public class AuthPage {
             restorePassButton = $(".button-restore-password");
 
     //actions
+@Step("Открыть страницу авторизации")
+public AuthPage openAuthPage(){
+    open("/front/client-login");
+    return this;
+}
 
     @Step("Ввести логин")
     public AuthPage setLogin(String login) {
@@ -46,5 +51,4 @@ public class AuthPage {
         restorePassButton.click();
         return this;
     }
-
 }

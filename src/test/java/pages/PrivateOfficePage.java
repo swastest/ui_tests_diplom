@@ -7,7 +7,6 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 
 public class PrivateOfficePage {
-
     //locators
     SelenideElement userIconButton = $(".user__icon"),
             profileTable = $(".profile-page-item"),
@@ -31,5 +30,4 @@ public class PrivateOfficePage {
         statusMessage.shouldHave(text(text));
         return this;
     }
-
 }

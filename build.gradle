@@ -12,13 +12,19 @@ def allureVersion = "2.14.0",
     junitVersion = "5.7.2",
     javaFakerVersion = "1.0.2",
     postgreVersion = "42.1.4",
-    springJDBCVersion = "5.3.20"
+    springJDBCVersion = "5.3.20",
+    ownerVersion = "1.0.12",
+    assertjVersion = "3.19.0",
+    slf4jVersion = "1.7.29",
+    aspectjweaverVersion = "1.9.6",
+    restAssuredVersion = "4.3.1"
 
 allure {
     version = allureVersion
     autoconfigure = true
     aspectjweaver = true
     configuration = "testImplementation"
+
     useJUnit5 {
         version = allureVersion
     }
@@ -26,22 +32,19 @@ allure {
 
 dependencies {
     testImplementation(
-            "org.aspectj:aspectjweaver:1.9.6",
+            "org.aspectj:aspectjweaver:$aspectjweaverVersion",
             "com.codeborne:selenide:$selenideVersion",
             "io.qameta.allure:allure-selenide:$allureVersion",
-            "io.rest-assured:rest-assured:4.3.1",
+            "io.rest-assured:rest-assured:$restAssuredVersion",
             "io.qameta.allure:allure-rest-assured:$allureVersion",
             "com.github.javafaker:javafaker:$javaFakerVersion",
-            "org.aeonbits.owner:owner:1.0.12",
-            "org.assertj:assertj-core:3.19.0",
+            "org.aeonbits.owner:owner:$ownerVersion",
+            "org.assertj:assertj-core:$assertjVersion",
             "org.junit.jupiter:junit-jupiter:$junitVersion",
-    "org.postgresql:postgresql:$postgreVersion",
-    "org.springframework:spring-jdbc:$springJDBCVersion"
+            "org.postgresql:postgresql:$postgreVersion",
+            "org.slf4j:slf4j-simple:$slf4jVersion",
+            "org.springframework:spring-jdbc:$springJDBCVersion"
     )
-
-    testRuntimeOnly(
-            "org.slf4j:slf4j-simple:1.7.29",
-            "org.junit.jupiter:junit-jupiter-engine:$junitVersion")
 }
 
 tasks.withType(JavaCompile) {
@@ -73,8 +76,8 @@ tasks.withType(Test) {
     }
 }
 
-task demowebshop(type: Test) {
+task auth(type: Test) {
     useJUnitPlatform {
-        includeTags 'demowebshop'
+        includeTags 'auth'
     }
 }
