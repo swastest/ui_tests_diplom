@@ -102,7 +102,7 @@ public class LandingPageTests extends TestBase {
     @DisplayName("Проверка ошибок в консоли")
     void consoleShouldNotHaveErrorsTest() {
         step("Открыть главную страницу", () ->
-              open(""));
+             open(""));
 
         step("Проверка консоли на наличие ошибки 'SEVERE'", () -> {
             String consoleLogs = DriverUtils.getConsoleLogs();
