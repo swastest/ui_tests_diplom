@@ -9,18 +9,18 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class AuthPage {
     //locators
-    SelenideElement loginInput = $("input[name=phone]"),
+   private final SelenideElement loginInput = $("input[name=phone]"),
             passwordInput = $("input[name=password]"),
             submitButton = $(".button.button-main"),
             errorMessage = $("div.form__notice.form__notice_error:nth-child(4)"),
             restorePassButton = $(".button-restore-password");
 
     //actions
-@Step("Открыть страницу авторизации")
-public AuthPage openAuthPage(){
-    open("/front/client-login");
-    return this;
-}
+    @Step("Открыть страницу авторизации")
+    public AuthPage openAuthPage() {
+        open("/front/client-login");
+        return this;
+    }
 
     @Step("Ввести логин")
     public AuthPage setLogin(String login) {
@@ -47,7 +47,7 @@ public AuthPage openAuthPage(){
     }
 
     @Step("Нажать кнопку 'Восстановить пароль'")
-    public AuthPage clickRestorePassword(){
+    public AuthPage clickRestorePassword() {
         restorePassButton.click();
         return this;
     }

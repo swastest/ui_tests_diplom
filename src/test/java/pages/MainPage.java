@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class MainPage {
     //locators
-    SelenideElement loginButton = $("a.menu-item_login", 1);
+    private final SelenideElement loginButton = $("a.menu-item_login", 1);
 
     //actions
     @Step("Открыть главную страницу")
@@ -18,7 +18,7 @@ public class MainPage {
     }
 
     @Step("Нажать кнопку 'Личный кабинет'")
-    public MainPage clickPrivateOfficeButton(){
+    public MainPage clickPrivateOfficeButton() {
         loginButton.click();
         return this;
     }

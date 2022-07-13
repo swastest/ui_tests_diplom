@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class RecoveryPage {
     //locators
-    SelenideElement phoneInput = $("[name=phone]"),
+    private final SelenideElement phoneInput = $("[name=phone]"),
             pageName = $("div.form__title"),
             errorMessage = $("div.form__notice"),
             submitButton = $("button.button-main"),

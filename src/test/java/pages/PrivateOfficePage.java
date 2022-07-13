@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class PrivateOfficePage {
     //locators
-    SelenideElement userIconButton = $(".user__icon"),
+    private final SelenideElement userIconButton = $(".user__icon"),
             profileTable = $(".profile-page-item"),
             statusMessage = $("div.msg_warning");
 
@@ -26,7 +26,7 @@ public class PrivateOfficePage {
     }
 
     @Step("Проверка статуса аккаунта, при авторизации заблокированного пользователя")
-    public PrivateOfficePage checkAccountStatus(String text){
+    public PrivateOfficePage checkAccountStatus(String text) {
         statusMessage.shouldHave(text(text));
         return this;
     }

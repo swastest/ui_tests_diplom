@@ -19,10 +19,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class LandingPageTests extends TestBase {
     Faker faker = new Faker();
     DataBaseQuery bd = new DataBaseQuery();
-    private String unregisteredLogin = "7903" + faker.numerify("#######");
-    private String unregisteredPassword = "7903" + faker.numerify("#######");
-    private String city = System.getProperty("city", "МОСКВА");
-    private String price = bd.findPrice(city).split("\\.")[0];
+    private final String unregisteredLogin = "7903" + faker.numerify("#######");
+    private final String unregisteredPassword = "7903" + faker.numerify("#######");
+    private final String city = System.getProperty("city", "МОСКВА");
+    private final String price = bd.findPrice(city).split("\\.")[0];
 
     @Test
     @AllureId("11105")
