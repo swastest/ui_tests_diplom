@@ -25,7 +25,7 @@ public class TestBase {
                 browserVersion = System.getProperty("browserVersion", "99"),
                 fullSelenoidUrlWithLogPass = format("https://%s:%s@selenoid.autotests.cloud/wd/hub",
                         selenoidLogin, selenoidPassword),
-                host = System.getProperty("host", "remote");
+                host = System.getProperty("host", "local");
 
         Configuration.baseUrl = ConfigurationCenter.configEnv.mainUrl();
         Configuration.browser = browserName;

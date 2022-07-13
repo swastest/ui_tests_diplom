@@ -21,7 +21,7 @@ public class LandingPageTests extends TestBase {
     DataBaseQuery bd = new DataBaseQuery();
     private final String unregisteredLogin = "7903" + faker.numerify("#######");
     private final String unregisteredPassword = "7903" + faker.numerify("#######");
-    private final String city = System.getProperty("city", "МОСКВА");
+    private final String city = System.getProperty("city", "Камень-на-Оби");
     private final String price = bd.findPrice(city).split("\\.")[0];
 
     @Test

@@ -19,7 +19,7 @@ public class AuthTests extends TestBase {
     MainPage mainPage = new MainPage();
     PrivateOfficePage privateOfficePage = new PrivateOfficePage();
 
-    String errorMessage = "Введен неверный номер телефона или пароль",
+    private final String errorMessage = "Введен неверный номер телефона или пароль",
             negativeLogin = "7903" + faker.numerify("#######"),
             negativePassword = "7903" + faker.numerify("#######"),
             accountStatusMessage = "Ваш аккаунт заблокирован администратором сервиса";
